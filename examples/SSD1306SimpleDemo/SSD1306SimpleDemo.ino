@@ -32,8 +32,8 @@
 
 // For a connection via I2C using the Arduino Wire include:
 #include <Wire.h>               // Only needed for Arduino 1.6.5 and earlier
-#include "SSD1306Wire.h"        // legacy: #include "SSD1306.h"
-// OR #include "SH1106Wire.h"   // legacy: #include "SH1106.h"
+// #include "SSD1306Wire.h"        // legacy: #include "SSD1306.h"
+#include "SH1106Wire.h"   // legacy: #include "SH1106.h"
 
 // For a connection via I2C using brzo_i2c (must be installed) include:
 // #include <brzo_i2c.h>        // Only needed for Arduino 1.6.5 and earlier
@@ -51,10 +51,10 @@
 
 
 // Initialize the OLED display using Arduino Wire:
-SSD1306Wire display(0x3c, SDA, SCL);   // ADDRESS, SDA, SCL  -  SDA and SCL usually populate automatically based on your board's pins_arduino.h e.g. https://github.com/esp8266/Arduino/blob/master/variants/nodemcu/pins_arduino.h
+// SSD1306Wire display(0x3c, SDA, SCL);   // ADDRESS, SDA, SCL  -  SDA and SCL usually populate automatically based on your board's pins_arduino.h e.g. https://github.com/esp8266/Arduino/blob/master/variants/nodemcu/pins_arduino.h
 // SSD1306Wire display(0x3c, D3, D5);  // ADDRESS, SDA, SCL  -  If not, they can be specified manually.
 // SSD1306Wire display(0x3c, SDA, SCL, GEOMETRY_128_32);  // ADDRESS, SDA, SCL, OLEDDISPLAY_GEOMETRY  -  Extra param required for 128x32 displays.
-// SH1106Wire display(0x3c, SDA, SCL);     // ADDRESS, SDA, SCL
+SH1106Wire display(0x3c, 21, 22);     // ADDRESS, SDA, SCL
 
 // Initialize the OLED display using brzo_i2c:
 // SSD1306Brzo display(0x3c, D3, D5);  // ADDRESS, SDA, SCL
